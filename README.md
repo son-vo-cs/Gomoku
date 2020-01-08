@@ -1,6 +1,6 @@
-Simulates the Gomoku chess board game. 
-The project uses Minimax algorithm with Alpha-Beta pruning for the AI (Artificial Intelligence).
+An mobile application that simulates the Gomoku game, an advance version of tic-tac-toe on a 15x15 board. Winner is the one who first get 5 stones in a row, horizontally, vertically, or diagonally.
 
+The project uses Minimax algorithm with Alpha-Beta pruning for the AI (Artificial Intelligence).
 
 Currently the project is only for 1 player.
 
