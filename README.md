@@ -1,4 +1,4 @@
-An mobile application that simulates the Gomoku game, an advance version of tic-tac-toe on a 15x15 board. Winner is the one who first get 5 stones in a row, horizontally, vertically, or diagonally.
+A mobile application that simulates the Gomoku game, an advance version of tic-tac-toe on a 15x15 board. Winner is the one who first get 5 stones in a row, horizontally, vertically, or diagonally.
 
 The project uses Minimax algorithm with Alpha-Beta pruning for the AI (Artificial Intelligence).
 
