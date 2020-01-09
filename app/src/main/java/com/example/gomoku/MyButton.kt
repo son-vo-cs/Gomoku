@@ -55,20 +55,35 @@ class MyButton {
         button.setBackgroundDrawable(drawable)
     }
 
-    fun drawStone(isBlack: Boolean)
+    fun drawStone(isBlack: Boolean): Boolean
     {
         // draw black stone
         if (isBlack && type == 0 && data.winner == 0) {
+            deSelect()
             drawSquare(true)
             button.setImageResource(R.drawable.black_oval)
             data.put(row,col,2)
+            type = 2
 
         }
+        else if (type != 0){
+            return false
+        }
         else if (!isBlack && type == 0 && data.winner == 0) {
+            deSelect()
             drawSquare(true)
             button.setImageResource(R.drawable.white_oval)
             data.put(row,col,1)
+            type = 1
+            return true
         }
+        return true
+
+
+    }
+
+    fun checkWinner()
+    {
         var winner = data.winner
         if (winner == 1)
             manager.addNotification(false)
@@ -109,13 +124,15 @@ class MyButton {
         drawSquare(false)
 //        button.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         button.setOnClickListener {
-            deSelect()
-            drawStone(black)
-            if (data.winner == 0)
+
+            var success = drawStone(black)
+            checkWinner()
+            if (data.winner == 0 && success)
             {
                 var nextMove = data.nextMove() as IntArray
                 deSelect()
                 parent[nextMove[0]][nextMove[1]]?.drawStone(!black)
+                checkWinner()
 
             }
 
