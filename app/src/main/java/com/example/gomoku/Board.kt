@@ -97,5 +97,9 @@ class Board{
         };
 
     }
+    fun getWiner(): Int
+    {
+        return winner;
+    }
 
 }

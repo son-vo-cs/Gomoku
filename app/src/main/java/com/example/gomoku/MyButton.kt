@@ -62,15 +62,18 @@ class MyButton {
             drawSquare(true)
             button.setImageResource(R.drawable.black_oval)
             data.put(row,col,2)
-            manager.addNotification(true)
 
         }
         else if (!isBlack && type == 0 && data.winner == 0) {
             drawSquare(true)
             button.setImageResource(R.drawable.white_oval)
             data.put(row,col,1)
-            manager.addNotification(false)
         }
+        var winner = data.winner
+        if (winner == 1)
+            manager.addNotification(false)
+        else if (winner == 2)
+            manager.addNotification(true)
     }
 
     // de-selecting a stone whenever we make a new move
